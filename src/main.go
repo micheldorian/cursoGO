@@ -29,6 +29,6 @@ func main() {
 	const basecuadrado = 10
 	areacuadrado := basecuadrado * basecuadrado
 
-	fmt.Println("El area del cuadrado es", areacuadrado)
+	fmt.Println("El area del cuadrado", areacuadrado)
 
 }
