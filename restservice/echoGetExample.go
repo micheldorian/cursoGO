@@ -1,4 +1,4 @@
-package src
+package restservice
 
 import (
 	"net/http"
@@ -7,7 +7,7 @@ import (
 	"github.com/labstack/echo/middleware"
 )
 
-func echoCall() {
+func main() {
 	// Echo instance
 	e := echo.New()
 

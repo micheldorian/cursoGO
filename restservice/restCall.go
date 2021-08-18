@@ -1,4 +1,4 @@
-package main
+package restservice
 
 import (
 	"fmt"
@@ -8,7 +8,7 @@ import (
 	"os"
 )
 
-func restCall() {
+func RestCallGET() (res []byte) {
 	response, err := http.Get("https://jsonplaceholder.typicode.com/todos/1")
 
 	if err != nil {
@@ -20,6 +20,6 @@ func restCall() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println(string(responseData))
+	return responseData
 
 }
