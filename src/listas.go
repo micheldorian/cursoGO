@@ -13,6 +13,8 @@ func listas() {
 	arrray2[0] = 1
 	arrray2[1] = 2
 	fmt.Println(arrray2, len(arrray2), cap(arrray2))
+	array3 := [2]string{"michel", "vargas"}
+	fmt.Println(array3)
 
 	//Slice
 	arrayImpares := []int{21, 3, 4, 6, 8, 10, 12, 14, 16, 18, 20, 21}

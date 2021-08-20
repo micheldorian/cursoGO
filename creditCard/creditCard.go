@@ -1,6 +1,9 @@
 package creditcard
 
-import "fmt"
+import (
+	"fmt"
+	"log"
+)
 
 type CreditCard struct {
 	Brand  string `json:"brand,omitempty"`
@@ -86,4 +89,36 @@ func ProductsFunc() {
 	GetActivateProduct(debit)
 	GetProductNumber(card)
 	GetProductNumber(debit)
+}
+
+func main() {
+
+	card := NewCreditCard("VISA", "5345687904939234", "01/2023", "432")
+	debit := NewDebitCard("MASTER", "4345687904939234", "01/2030")
+	// Validate a CreditCard using all the checks implemented so far.
+	if err := card.Validate(); err != nil {
+		log.Fatal(err)
+	}
+
+	GetActivateProduct(card)
+	GetActivateProduct(debit)
+	GetProductNumber(card)
+	GetProductNumber(debit)
+
+	card2, err := NewCreditCardValidate("MASTER", "1345687904939234", "01/2022", "112")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	GetActivateProduct(card2)
+	GetProductNumber(card2)
+
+	encrypt := card2.Encrypt("mySuperSecureSalt")
+
+	// Common helpers.
+	fmt.Println(card2.First6())
+	fmt.Println(card2.Last4())
+	fmt.Println(card2.ToJSON())
+
+	fmt.Println(string(encrypt))
 }
